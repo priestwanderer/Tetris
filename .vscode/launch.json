@@ -1,0 +1,37 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Tetris (mingw x64)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/Tetris.exe",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "build (mingw x64)",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb.exe"
+    },
+    {
+      "name": "Launch Tetris (Debug x64)",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}\\x64\\Debug\\Tetris.exe",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "msbuild Debug|x64"
+    },
+    {
+      "name": "Launch Tetris (Debug Win32)",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}\\Debug\\Tetris.exe",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "msbuild Debug|Win32"
+    }
+  ]
+}

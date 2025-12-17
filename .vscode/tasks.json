@@ -1,0 +1,67 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "windres (mingw)",
+      "type": "shell",
+      "command": "windres",
+      "args": [
+        "Tetris.rc",
+        "-O",
+        "coff",
+        "-o",
+        "Tetris.res"
+      ],
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "build (mingw x64)",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "Tetris.cpp",
+        "Tetris.res",
+        "-municode",
+        "-lgdi32",
+        "-lole32",
+        "-lcomdlg32",
+        "-static",
+        "-o",
+        "Tetris.exe"
+      ],
+      "dependsOn": "windres (mingw)",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "msbuild Debug|x64",
+      "type": "shell",
+      "command": "msbuild",
+      "args": [
+        "Tetris.sln",
+        "/p:Configuration=Debug",
+        "/p:Platform=x64"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "msbuild Debug|Win32",
+      "type": "shell",
+      "command": "msbuild",
+      "args": [
+        "Tetris.sln",
+        "/p:Configuration=Debug",
+        "/p:Platform=Win32"
+      ],
+      "group": "build",
+      "problemMatcher": "$msCompile"
+    }
+  ]
+}
