@@ -3,8 +3,8 @@
 class Block
 {
 	protected:
-		int paddingX, paddingY; //¶¨Òå·½¿é²Î¿¼µã£¨×óÉÏ£©Óë¾ø¶Ô×ø±êÔ­µãµÄ¾àÀë
-		const int a = 20; //¶¨ÒåÃ¿¸öĞ¡Õı·½ĞÎµÄ±ß³¤
+		int paddingX, paddingY; //å®šä¹‰æ–¹å—å‚è€ƒç‚¹ï¼ˆå·¦ä¸Šï¼‰ä¸ç»å¯¹åæ ‡åŸç‚¹çš„è·ç¦»
+		const int a = 20; //å®šä¹‰æ¯ä¸ªå°æ­£æ–¹å½¢çš„è¾¹é•¿
 		
 	public:
 		Block()
@@ -23,6 +23,7 @@ class Block
 			return type;
 		}
 		
+		// æ–¹å—ç§»åŠ¨æ–¹æ³•
 		void falldown()
 		{
 			paddingY = paddingY + 20;
@@ -249,7 +250,7 @@ class Block_L : public Block
 		}
 };
 
-////»æÖÆÒ»¸öÕı·½ĞÎ£¨POINT* + Polygon()£©
+////ç»˜åˆ¶ä¸€ä¸ªæ­£æ–¹å½¢ï¼ˆPOINT* + Polygon()ï¼‰
 //POINT point[4] = { {paddingX, paddingY}, {paddingX, paddingY + a}, {paddingX + a, paddingY + a}, {paddingX + a, paddingY} };
 ////<==>
 ////point[0].x = paddingX; point[0].y = paddingY;
@@ -258,10 +259,10 @@ class Block_L : public Block
 ////point[3].x = paddingX + a; point[3].y = paddingY;
 //Polygon(hdc, point, 4);
 
-//»æÖÆÒ»¸öÕı·½ĞÎ£¨Rectangle()£©
+//ç»˜åˆ¶ä¸€ä¸ªæ­£æ–¹å½¢ï¼ˆRectangle()ï¼‰
 //Rectangle(hdc, paddingX, paddingY, paddingX + a + 1, paddingY + a + 1);
 
-////»æÖÆÒ»¸öÕı·½ĞÎ£¨RECT* + FrameRect()£©
+////ç»˜åˆ¶ä¸€ä¸ªæ­£æ–¹å½¢ï¼ˆRECT* + FrameRect()ï¼‰
 //HBRUSH hbr;
 //hbr = CreateSolidBrush(RGB(0, 0, 0));
 //RECT rect[1] = {paddingX, paddingY, paddingX + a + 1, paddingY + a + 1};
