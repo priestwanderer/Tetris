@@ -163,6 +163,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                 break;
             }
         }
+        timer_id = SetTimer(hWnd, 1, 500, NULL);
         break;
     case WM_COMMAND:
         {
@@ -218,7 +219,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         UpdateWindow(hWnd);
     }
     break;
-    
+
     // 定时器设置位置和速度
     case WM_PAINT:
         {
@@ -229,8 +230,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             DrawBlock(hdc, block, type);
 
             EndPaint(hWnd, &ps);
-
-            timer_id = SetTimer(hWnd, 1, 500, NULL);
         }
         break;
 
@@ -244,6 +243,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         break;
     case WM_CLOSE:
         DestroyWindow(hWnd);
+        KillTimer(hWnd, timer_id);
         break;
     case WM_DESTROY:
         PostQuitMessage(0);
