@@ -17,6 +17,12 @@ class Block
 
 		virtual void SetBlock(HDC hdc, int type) = 0;
 
+		void setPosition(int x, int y)
+		{
+			paddingX = x;
+			paddingY = y;
+		}
+
 		int changeType(int type)
 		{
 			type = (type == 4) ? type - 3 : type + 1;
